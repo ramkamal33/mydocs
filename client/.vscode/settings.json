@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6ce25a40-d8fe-4702-8b1a-2dc687a9be9c/resourceGroups/DefaultResourceGroup-EAU/providers/Microsoft.Web/sites/Talashdrive",
+    "appService.deploySubpath": "dist\\talash-pdfdrive"
+}

@@ -1,0 +1,76 @@
+
+<input type="text" style="padding:8px;margin:15px auto;width:30%;" placeholder="Type to filter the name column..."
+    (change)="updateFilter($event)" (keyup)="updateFilter($event)" />
+    <select style="padding:8px;margin:15px auto;width:30%;" (change)="FilterByCategory($event)" placeholder="Filter by FileType">
+        <option value="Filter by FileType">Filter by FileType</option>
+        <option value="Technical Document">Technical Document</option>
+        <option value="User Manual">User Manual</option>
+        <option value="Interview">Interview</option>
+        <option value="Books">Book</option>
+        <option value="Template">Template</option>
+        <option value="Forms">Forms</option>
+        <option value="Invoices">Invoices</option>
+        <option value="Other">Other</option>
+    </select>
+<button class="button button2" (click)="refreshData()">Search</button>
+<label>Page size:</label>
+<select (change)="SaveFileSize($event)">
+    <option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option> 
+</select>
+
+<ngx-datatable
+
+class="material expandable "y
+
+
+    [rows]="rows" 
+    
+    [rowClass]="getRowClass"
+    [columns]="[{ name: 'Name' }, { name: 'preview' }]" 
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50" [footerHeight]="50"  [limit]="getPageSize()">
+
+    <ngx-datatable-column name="Name"  [frozenLeft]="true"></ngx-datatable-column>
+    
+        <ngx-datatable-column [width]="5"  name="preview"  >
+           
+            <ng-template ngx-datatable-cell-template let-row="row" let-isSelected="isSelected"
+                let-onCheckboxChangeFn="onCheckboxChangeFn">
+                
+                    <mat-checkbox class=" myinput"   [checked]="getChecked(row)" (change)="onCheckboxChange($event, row)"  />
+            
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [width]="7"  name="Save File to My files(*)"  >
+           
+            <ng-template ngx-datatable-cell-template let-row="row" let-isSelected="isSelected"
+                let-onCheckboxChangeFn="onCheckboxChangeFn">
+                
+                    <input type="button" class=" button6"  (click)="SaveFileToMyFiles($event, row)"  value="Save" />
+            
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [width]="5"  name="Show AI suggestions(*)"  >
+           
+            <ng-template ngx-datatable-cell-template let-row="row" let-isSelected="isSelected"
+                let-onCheckboxChangeFn="onCheckboxChangeFn">
+                
+                    <mat-checkbox class=" myinput"   [checked]="getChecked(row)" (change)="onCheckboxChange($event, row)"  />
+            
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [width]="5"  name="Delete(*)"  >
+           
+            <ng-template ngx-datatable-cell-template let-row="row" let-isSelected="isSelected"
+                let-onCheckboxChangeFn="onCheckboxChangeFn">
+                
+                    <img width="30px" height="30px" src="https://pnghq.com/wp-content/uploads/delete-icon-png-png-crisp-quality-download-36703.png" class=" myinput"    (change)="onCheckboxChange($event, row)"  />
+            
+            </ng-template>
+        </ngx-datatable-column>
+    
+
+
+     </ngx-datatable>
+     <br><br>
+     (PS:* indicates that this is only for logged in users) 

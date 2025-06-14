@@ -1,0 +1,116 @@
+<button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+    <h4> If you want to share uploaded file to public use the following optins</h4>
+    <div matTooltipClass="tooltip" matTooltip="we use AI text Analyser to get summary and then derive keywords . Keywords can be modified . With same Key Words Youtube API will be used
+                                to get related Videos useful along with pdf. Again Key words and Video list can be
+                                modified and saved . These key words will be used in search "
+        matTooltipPosition="before">
+        <p>More Information & Help Video
+            <button class="button2" (click)="playYoutubeVideo()">Video</button>
+        </p>
+    </div>
+</button>
+<details>
+    <form  >
+    <section>
+        <div style="width: 100%; display: table;">
+            <div style="display: table-row;background-color: transparent;">
+                <div style="width: 600px; display: table-cell;">
+                    <fieldset>
+                        <label>Enter file Name</label>
+                        <input [ngModel]="fname" (change)="updateFileName($event)" type="text">
+                        <label>Select file type
+                            <select (change)="SaveFileCategory($event)"   required>
+                                <option value=""></option>
+                                <option value="Technical Document">Technical Document</option>
+                                <option value="User Manual">User Manual</option>
+                                <option value="Books">Book</option>
+                                <option value="Interview">Interview</option>
+                                <option value="Template">Template</option>
+                                <option value="Forms">Forms</option>
+                                <option value="Invoices">Invoices</option>
+                                <option value="Other">Other</option>
+                            </select></label>
+
+                            <!-- <div *ngIf="myForm.controls['fileCategory'].invalid && (myForm.controls['fileCategory'].dirty || myForm.controls['fileCategory'].touched)"
+                            class="alert">
+                            <div>
+                                <P  style="color:red"><i> Please select category of file</i>
+                                </P>
+
+                            </div>
+                        </div> -->
+                        <!-- <input class="button" type="text" class="form-control" id="fileName"
+                                        placeholder="Enter file name"> -->
+                        <button  class="btn  btn button4" (click)="getKeyWords()">Get
+
+                            Keywords</button>
+
+                    </fieldset>
+                    <fieldset value="Manager Keywords">
+                        <b>Manager Keywords</b>
+                        <hr>
+                        <br>
+
+                        <label for="fileName" class="form-label"> Few Key words which may be useful:</label>
+                        <mat-chip-set>
+
+                            <mat-chip style="color:rgb(244, 47, 125)" #chipList *ngFor="let option of listOfKeywords"
+                                [removable]="removable" (removed)="removeOption(option)">{{option}}<mat-icon
+                                    matChipRemove *ngIf="true">x</mat-icon></mat-chip>
+
+
+                        </mat-chip-set>
+                        <Label>Select Suggested Keywords <mat-select panelClass="frequency">
+
+                                <option *ngFor="let word of suggestedKeywordsByAIService" value={{word}}> {{word}}
+                                </option>
+                            </mat-select> </Label>
+
+                        <div *ngFor="let word of suggestedKeywordsByAIService"> {{word}}</div>
+                        <label> <input [ngModel]="newKeyword" (change)="updateKeywords($event)" class="form-control"
+                                aria-label="With textarea"> <button class="button4" (click)="AddNewKey()"> add
+                                key word</button></label>
+                    </fieldset>
+                </div>
+                <div style="display: table-cell;background-color: transparent;">
+
+                    <fieldset>
+                        <b>Get related Videos</b>
+                        <hr><br>
+                        <label for="fileName" class="form-label">get Youtube videos list based on keywords
+
+                        </label>
+                        <button  class="btn  btn button4" (click)="get1videolist()">Get
+                            Video List</button>
+                        <div class="container1 custom-scrollbar">
+                            <div *ngFor="let video of  videoList">
+
+                                <ul style="list-style-type:none;">
+                                    <li> <mat-checkbox (click)="UpdateFileRelatedVideoInfo(video.id)">check if video
+                                            related to pdf content</mat-checkbox>
+                                    </li>
+                                    <li>{{video.title}}</li>
+                                    <li>{{video.description}}</li>
+                                    <li><button class="button4">Watch Video</button></li>
+                                    <li>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="mb-3 divpadding">
+            <button type="submit"  class=" button2" 
+        
+             (click)="UpdateFileAdditionalInfo()">Share</button>
+        </div>
+    </section>
+</form>
+</details>

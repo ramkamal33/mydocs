@@ -1,0 +1,179 @@
+<div class="header-section-inr">
+    <div class="container my-5">
+        <div class="hero-section row align-items-center" style="padding: 40px;padding-right: 300px;">
+            <h3 class="hero-title">List of Files </h3>
+            <hr>
+            <table class="slidemenu" >
+                <tr >    
+                    <td  >
+                    <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
+                    <label for="slide-item-1"><p class="icon">♬</p><span></span></label> </td><td>
+                <div nowrap="true" >
+                    
+                   
+                    <mat-radio-group  name="slideItem">
+                        <mat-radio-button  (click)="isChecked('MyFiles')" value="1">✈ Public Files:</mat-radio-button>
+                        <mat-radio-button (click)="isChecked('publicFiles')" value="2">♬ My Files:</mat-radio-button>
+                      </mat-radio-group>
+                               
+                    
+                   
+                </div>
+            </td><td >
+                
+                    <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
+                    <label for="slide-item-2"><p class="icon">✎</p><span>Batch Update  </span></label></td>
+                    <td style="width: 200px;" [noWrap]="true">
+                       
+                    <select  name="slideItem" class="icon"  required (change)="updateBatchCategory($event)" placeholder="Select file type"  >
+                        <option value=""></option>
+                        <option value="Technical Document">Technical Document</option>
+                        <option value="User Manual">User Manual</option>
+                        <option value="Books">Book</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Template">Template</option>
+                        <option value="Forms">Forms</option>
+                        <option value="Invoices">Invoices</option>
+                        <option value="Other">Other</option>
+                    </select> 
+                    <button class="button4" (click)="UpdateFilecategory($event)">Update</button>
+                    
+                
+            </td>
+        <td  >
+            
+            <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
+            <label for="slide-item-3"><p class="icon">✈</p><span>Instrucitons</span></label></td><td>
+            <label class="icon" for="slide-item-3"  id="slide-item-3" class="slide-toggle" class="icon">Steps:
+                    Select files in the following grid</label>
+                    <label>Select new category  and
+                    click Update button </label>
+        </td></tr>
+         </table>
+           
+            
+            
+            <div>
+                <app-tabledisplay [message]='text' [rows]="data" (dataEvent)="updatePreviewData($event)">>
+                </app-tabledisplay>
+            </div>
+            <hr>
+            <div class="accordion" id="accordionExample">
+                <div>
+                    <table style=" min-width:1300px">
+                        <th style=" width:500px">
+                            <h3>Email Files as links </h3>
+
+                        </th>
+
+                        <th>
+                            Preview Files
+                        </th>
+                        <th style=" width:500px">
+                            Videos related PDF
+                        </th>
+                        <tr>
+                            <td>
+                                Help to send Email
+                                <mat-icon
+                                    matTooltip=" 1. Select files from above table( mandatory field)  2. Add email (mandatory field)  3. Add body text(optional)"
+                                    matTooltipPosition="right" matTooltipClass="tooltip">
+                                    ?
+                                </mat-icon>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td style="vertical-align: top; ">
+
+                                <form (submit)="sendEmail($event)" >
+                                    <div class="mb-3">
+                                        <textarea name="body_id" required
+                                            placeholder="Enter some text which is less than 250 charecters"
+                                            style="width: 400px;height:100px"></textarea>
+                                    </div>
+
+
+
+                                    <div class="mb-3">
+                                        <textarea placeholder="Select files from above table to add to this TextArea"
+                                            style="width: 400px;border-width:thin;height: 100px;" name="file_id"
+                                             [(ngModel)]="emailfiles"></textarea>
+                                    </div>
+                                    <!-- <div *ngIf="myForm.controls['fileslist'].invalid && (myForm.controls['fileslist'].dirty || myForm.controls['fileslist'].touched)"
+                                        class="alert">
+                                        <div>
+                                            <font [color]="refreshData"><i> Please select pdf files from above table</i>
+                                            </font>
+
+                                        </div>
+                                    </div> -->
+
+                                    <div class="mb-3">
+                                        <label for="fileName" class="form-label"></label>
+                                        <input style="width: 400px;border-width:thin;"
+                                            placeholder="Email to Send Invitation"  type="email"
+                                            required name="email_id" />
+                                        <!-- <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)"
+                                            class="alert">
+                                            <div>
+                                                <font [color]="refreshData"><i>Please enter Email address</i></font>
+                                            </div>
+                                        </div> -->
+
+                                    </div>
+                                    <br>
+                                    <!-- Get Keywords Button -->
+                                    <div class="mb-3">
+
+                                        <input style="width: 400px;border-width:thin;" 
+                                        
+                                            type="submit" value="Send" />
+
+                                    </div>
+                                </form>
+
+                            </td>
+                            <td style="vertical-align: top;">
+                                <div>
+                                    <iframe [src]=safeSrc width="420px" height="400"></iframe>
+
+                                </div>
+                            </td>
+                            <td>
+                                <cdk-virtual-scroll-viewport style="height: 500px; width: 100%;" itemSize="4">
+
+                                    <div style=" overflow-x: scroll;float: right;vertical-align: top;">
+                                        <div *ngFor=" let video of videolist ">
+                                            <iframe height="300px" width="380px" [src]="video" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </cdk-virtual-scroll-viewport>
+
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+
+                    "
+                    <!-- <table>
+                        <tr *ngFor=" let video of videolist" >
+                            <td  style="overflow: auto;" >
+                                <div>
+                                    <iframe  [src]="video" frameborder="0" allowfullscreen></iframe>                                   
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                     -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ngx-spinner size="small"  [textContent]="loading"  [type]="typeSelected"></ngx-spinner> -->

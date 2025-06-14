@@ -1,0 +1,39 @@
+.ul_top_hypers {
+    display: flex;
+    justify-content:space-around;
+    list-style-type:none;
+    align-items: center;
+    border:thick;
+    border-width: 5px;
+    
+    background-image: url("https://th.bing.com/th/id/OIP.2x9PKs3N2-399AaS754E5wHaEK?rs=1&pid=ImgDetMain");
+}
+h1 {
+    letter-spacing: 5px;
+  }
+
+.header-section-inr {
+    background: url('https://th.bing.com/th/id/OIP.2x9PKs3N2-399AaS754E5wHaEK?rs=1&pid=ImgDetMain') repeat;
+}
+.login-btn {
+background-color: #26BBA7;
+border: none;
+padding: 5px 15px;
+color: #fff;
+border-radius: 4px;
+font-size: 17px;
+padding: 8px 20px;
+text-transform: capitalize;
+font-weight: 700;
+}
+
+.header-section-inr .d-flex.justify-content-between.align-items-center.p-3 {
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+
+.header-section-inr h2 a {
+color: #000;
+text-decoration: navajowhite;
+font-weight: bold;
+}

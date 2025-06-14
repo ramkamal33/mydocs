@@ -1,0 +1,135 @@
+@import './../../../node_modules/@swimlane/ngx-datatable/index.css';
+@import './../../../node_modules/@swimlane/ngx-datatable/themes/material.scss';
+@import './../../../node_modules/@swimlane/ngx-datatable/themes/dark.scss';
+@import './../../../node_modules/@swimlane/ngx-datatable/themes/bootstrap.scss';
+@import './../../../node_modules/@swimlane/ngx-datatable/assets/icons.css';
+
+/* Datatable Inner Background */
+.ngx-datatable .datatable-inner {
+  background-color: red;
+}
+
+/* Header cell labels and sort buttons */
+::ng-deep .ngx-datatable .datatable-header-cell-label,
+::ng-deep .ngx-datatable .datatable-header-inner .sort-btn {
+  color: red !important;
+}
+
+/* Custom checkbox style */
+.myinput[type="checkbox"]:before {
+  position: relative;
+  display: block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid blue;
+  content: "";
+  background: lightblue;
+  border-radius: 5px;
+}
+
+/* Datatable header and inner background + border */
+::ng-deep .ngx-datatable .datatable-header,
+::ng-deep .ngx-datatable .datatable--inner {
+  background-color: #7faded;
+  border-top: 5px solid #ccc;
+}
+
+/* Row color styling */
+::ng-deep .row-color {
+  background-color: rgb(231, 245, 235);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
+  border: 2px groove white;
+  border-top: 2px solid white;
+}
+
+/* Override row color with red style */
+.ngx-datatable.row-color {
+  color: red;
+  font-size: 20px;
+  background-color: red;
+  fill: red;
+}
+
+/* Button base style */
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+/* Button variations */
+.button2 {
+  background-color: #5d6fe7;
+}
+
+.button3 {
+  background-color: #f44336;
+}
+
+.button4 {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.button5 {
+  background-color: #555555;
+}
+
+/* Button6 with background image */
+.button6 {
+  background-color: #07045c;
+  color: black;
+  background: url("https://tse3.mm.bing.net/th/id/OIP.H_jjYYEVI0neCYeGys4iJgHaHs?rs=1&pid=ImgDetMain") 0 0 / 30px 30px no-repeat;
+  margin: 5px;
+}
+
+.button6:active {
+  color: red;
+}
+
+.button6:hover {
+  background-color: olivegreen;
+}
+
+/* Additional row and cell backgrounds */
+.row-color {
+  background-color: green;
+}
+
+.cell {
+  background-color: green;
+}
+
+/* Inputs and Textarea */
+input,
+textarea {
+  width: 40%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Data container with datatable scroll */
+.data-container .ngx-datatable.scroll-vertical {
+  height: calc(100vh - 10px);
+}
+
+/* Datatable header cell style */
+::ng-deep .ngx-datatable .datatable-header-cell {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+  padding: 8px;
+  line-height: 1.92857143;
+  font-weight: bold;
+  color: rgb(243, 240, 244);
+}

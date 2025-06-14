@@ -1,0 +1,36 @@
+<h4><font font-color="blue"></font>List of Files  </h4>
+<fieldset>
+<div >
+  <button (click) = "refreshList()">Refresh</button>
+</div>
+    <table>
+        <tr>
+          <th class="column1">Uploaded Files</th>
+          <th class="column2" >Preview</th>
+          <th class="column2" >Delete</th>
+
+        </tr>
+        <tr *ngFor="let publicfile of publicFiles">
+          <td class="column1">{{publicfile}}</td>
+          <td class="column2" style="cursor: pointer;"><i class="fa fa-download"><input id="file" type="radio" (click)="preview(publicfile)"></i></td>
+          <td class="column3" (click)="deleteFile(publicfile)">
+            <img alt="" src="../assets/icon-download.png" />
+          </td>
+
+        </tr>
+
+      </table>
+      
+     
+</fieldset>
+<br>
+<fieldset>
+
+    <!-- <object class="pdf" 
+    data=
+{{safeSrc}} 
+    width="600"
+    height="500">
+</object> -->
+<iframe [src]= safeSrc width="700px" height="400"></iframe>
+</fieldset>

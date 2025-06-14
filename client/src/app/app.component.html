@@ -1,0 +1,45 @@
+<ngx-spinner size="large" [textContent]="loading"  [type]="typeSelected"></ngx-spinner>
+<div class="div_top_hypers">
+  <ul class="ul_top_hypers">
+      <li>
+         <H1> <a>Talash Drive</a></H1>
+      
+         <!-- <img src="Blog Banner 560x315 px.jpeg"  style=" width:600px; height:100px"> -->
+         <h3>Secure PDF drive with AI tools being used for spam detection in uplods.</h3>
+
+      </li>
+      <li>
+         
+      </li>
+      <li>
+
+          <table>
+              <tr>
+                  <td>
+          <app-login-button *ngIf="(auth.isAuthenticated$ | async) == false">
+
+          </app-login-button>
+          <app-user-profile></app-user-profile>
+      </td>
+      <td> <app-logout-button *ngIf="(auth.isAuthenticated$ | async) "></app-logout-button></td>
+      </tr>
+      </table>
+
+      </li>
+      <li></li>
+      <li></li>
+  </ul>
+</div>
+<table style="background-color: rgb(238, 241, 245); vertical-align: top;width:100%">
+    <tr style="vertical-align: top;">
+        <td style="padding: 10px;"><app-fileupload (uploadEvent)="handleDataFromUpload($event)" ></app-fileupload></td>
+        <tr>
+            <td  style="padding: 10px;"><app-files-explorer [refreshData]="refreshData"></app-files-explorer></td>
+      
+    </tr>
+    
+</table>
+
+
+<!-- <app-file-list></app-file-list> -->
+ 

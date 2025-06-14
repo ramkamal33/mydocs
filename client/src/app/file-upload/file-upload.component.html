@@ -1,0 +1,67 @@
+<div class="container my-5">
+    <div class="hero-section row align-items-center">
+        <table style=" min-width:1300px">
+            <tr>
+                <td>
+                    <!-- Left side text content -->
+                    <div class="col-md-6">
+                        <!-- Left side text content -->
+                        <h1 class="hero-title">Upload Files </h1>
+                        <input #file type="file" size="50" width="48" maxlength="50" multiple
+                            (change)="upload(file.files)" />
+                        <br />
+
+                        <span *ngIf="progress > 0 && progress < 100">
+                            {{progress}}%
+                        </span>
+                        <br>
+                        <span *ngIf="message">
+                            {{message}}
+                        </span>
+                    </div>
+                    <h2 class="accordion-header">
+                        <!--                         
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne">
+                            If you want to share uploaded file to public use the following optins
+                            <div matTooltipClass="tooltip" matTooltip="we use AI text Analyser to get summary and then derive keywords . Keywords can be modified . With same Key Words Youtube API will be used
+                                to get related Videos useful along with pdf. Again Key words and Video list can be
+                                modified and saved . These key words will be used in search "
+                                matTooltipPosition="before">
+                                <p>More Information  & Help Video
+                                    <button class="button2" (click)="playYoutubeVideo()">Video</button>
+                               
+                                </p> 
+                            </div>
+                        </button> -->
+                    </h2>
+                    <app-file-tags [fname]="fname"></app-file-tags>
+
+
+
+                </td>
+                <td style="padding-left:200px;vertical-align:top ;padding 10px">
+                    <div class="col-md-6 text-right rcorners3">
+                        <img style="width:80%;height: 50%;" src="./img1.png" alt="File Transfer" class="hero-image">
+                      
+                    </div>
+                </td>
+                <td style="vertical-align:top ">
+
+                    <div>
+                        <img width="400" height="250" src="Talash Drive.gif">
+                        <p class="hero-subtitle">Upload 50 PDFs related<br> to Artificial Intelligence<br> and win 50$.
+                            Contact
+                            <label>talashdrivesales gmail.com</label>
+                        </p>
+                    </div>
+
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+<!-- options for public file  -->
